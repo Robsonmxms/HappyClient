@@ -12,9 +12,12 @@ struct MemeServiceConstants {
     static let memeUrl = "http://alpha-meme-maker.herokuapp.com/memes/"
 }
 struct MemeService {
-    static func getMemes() async throws -> MemeModel? {
+    static func getMemes(
+        _ requisition: String? = MemeServiceConstants.constUrl
+
+    ) async throws -> MemeModel? {
         let getUrl = URL(
-            string: MemeServiceConstants.constUrl
+            string: requisition ?? MemeServiceConstants.constUrl
         )
         do {
             let (data, _) = try await URLSession.shared.data(from: getUrl!)
@@ -27,18 +30,15 @@ struct MemeService {
         return nil
     }
 
-    static func postMemeSubmission(_ submission: SubmissionModel) async throws -> SubmissionModel? {
-        let submissionURL = MemeServiceConstants.memeUrl + String(submission.memeId)
-
-        var request = URLRequest(url: URL(string: submissionURL)!)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = ["Content-Type":"application/json"]
+    static func getMemeSubmission(_ memeID: Int) async throws -> SubmissionModel? {
+        let getUrl = URL(
+            string: MemeServiceConstants.memeUrl + String(memeID) + "/submissions"
+        )
         do {
-            let jsonData = try JSONEncoder().encode(submission)
-            request.httpBody = jsonData
-            let (data, _) = try await URLSession.shared.data(for: request)
-            let userData = try JSONDecoder().decode(SubmissionModel.self, from: data)
-            return userData
+            let (data, _) = try await URLSession.shared.data(from: getUrl!)
+            let jsonDecode = try JSONDecoder()
+                .decode(SubmissionModel.self, from: data)
+            return jsonDecode
         } catch {
             print(error)
         }

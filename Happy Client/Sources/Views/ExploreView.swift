@@ -7,49 +7,28 @@
 
 import UIKit
 
-class ExploreView: UIView {
+class ExploreView: UITableView {
 
-    private var memeModel: MemeModel?
-    private var submissionModel: SubmissionModel?
-
-    let label: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.text = "Olá"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        Task {
-            await memeModel = MemeModel.memeFactory()
-        }
-
+    override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: .insetGrouped)
         applyViewCode()
+
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
 extension ExploreView: ViewCodeConfiguration {
-    func buildHierarchy() {
-        self.addSubview(label)
-    }
+    func buildHierarchy() {}
 
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        ])
-    }
+    func setupConstraints() {}
 
     func configureViews() {
-        self.backgroundColor = .gray
+        self.backgroundColor = .brown
+        self.separatorStyle = .none
+        self.register(MemeTableViewCell.self, forCellReuseIdentifier: "memeCell")
     }
 
 }
