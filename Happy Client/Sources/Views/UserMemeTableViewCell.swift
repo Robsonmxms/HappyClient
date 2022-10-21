@@ -1,20 +1,20 @@
 //
-//  MemeTableViewCell.swift
+//  UserMemeTableViewCell.swift
 //  Happy Client
 //
-//  Created by Robson Lima Lopes on 13/10/22.
+//  Created by Robson Lima Lopes on 21/10/22.
 //
 
 import UIKit
 
-class MemeTableViewCell: UITableViewCell {
+class UserMemeTableViewCell: UITableViewCell {
 
     private let placeHolder = UIImage(named: "ImageError")
-    private var background = UIView()
-    private var topText = UILabel()
-    private var bottomText = UILabel()
 
-    var imageFromAPI = UIImageView()
+    private var background = UIView()
+    private var imageFromAPI = UIImageView()
+    var topTextField = TextFieldView()
+    var bottomTextField = TextFieldView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,19 +26,19 @@ class MemeTableViewCell: UITableViewCell {
 
 }
 
-extension MemeTableViewCell: ViewCodeConfiguration {
+extension UserMemeTableViewCell: ViewCodeConfiguration {
     func buildHierarchy() {
-        background.addSubview(topText)
+        background.addSubview(topTextField)
         background.addSubview(imageFromAPI)
-        background.addSubview(bottomText)
+        background.addSubview(bottomTextField)
         contentView.addSubview(background)
     }
 
     func setupConstraints() {
         setupBackgroundConstraints()
-        setupTopTextConstraints()
+        setupTopTextFieldConstraints()
         setupImageFromAPIConstraints()
-        setupBottomTextConstraints()
+        setupBottomTextFieldConstraints()
     }
 
     func configureViews() {
@@ -49,23 +49,12 @@ extension MemeTableViewCell: ViewCodeConfiguration {
         background.layer.cornerRadius = 20
         background.translatesAutoresizingMaskIntoConstraints = false
 
-        topText.font = .preferredFont(forTextStyle: .title1)
-        topText.textColor = .black
-        topText.textAlignment = .center
-        topText.numberOfLines = 2
-        topText.lineBreakMode = .byWordWrapping
-        topText.translatesAutoresizingMaskIntoConstraints = false
+        topTextField.placeholder = "Top Sentence"
+        bottomTextField.placeholder = "Bottom Sentence"
 
         imageFromAPI.contentMode = .scaleAspectFill
         imageFromAPI.clipsToBounds = true
         imageFromAPI.translatesAutoresizingMaskIntoConstraints = false
-
-        bottomText.font = .preferredFont(forTextStyle: .title1)
-        bottomText.textColor = .black
-        bottomText.textAlignment = .center
-        bottomText.numberOfLines = 2
-        bottomText.lineBreakMode = .byWordWrapping
-        bottomText.translatesAutoresizingMaskIntoConstraints = false
     }
 
     func setupBackgroundConstraints() {
@@ -89,17 +78,17 @@ extension MemeTableViewCell: ViewCodeConfiguration {
         ])
     }
 
-    func setupTopTextConstraints() {
+    func setupTopTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            topText.widthAnchor.constraint(
+            topTextField.widthAnchor.constraint(
                 equalTo: background.widthAnchor,
-                multiplier: 0.8
+                multiplier: 0.9
             ),
-            topText.topAnchor.constraint(
+            topTextField.topAnchor.constraint(
                 equalTo: background.topAnchor,
                 constant: 20
             ),
-            topText.centerXAnchor.constraint(
+            topTextField.centerXAnchor.constraint(
                 equalTo: background.centerXAnchor
             )
         ])
@@ -122,29 +111,27 @@ extension MemeTableViewCell: ViewCodeConfiguration {
         ])
     }
 
-    func setupBottomTextConstraints() {
+    func setupBottomTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            bottomText.widthAnchor.constraint(
+            bottomTextField.widthAnchor.constraint(
                 equalTo: background.widthAnchor,
-                multiplier: 0.8
+                multiplier: 0.9
             ),
-            bottomText.bottomAnchor.constraint(
+            bottomTextField.bottomAnchor.constraint(
                 equalTo: background.bottomAnchor,
                 constant: -20
             ),
-            bottomText.centerXAnchor.constraint(
+            bottomTextField.centerXAnchor.constraint(
                 equalTo: background.centerXAnchor
             )
         ])
     }
 
-    func configure(with model: Datum) {
-        let getUrl = model.image
-        topText.text = model.topText
+    func configure(imageURL: String) {
         imageFromAPI.imageFromServerURL(
-            getUrl,
+            imageURL,
             placeHolder: placeHolder
         )
-        bottomText.text = model.bottomText
     }
+
 }
