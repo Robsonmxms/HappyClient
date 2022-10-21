@@ -108,7 +108,7 @@ extension ExploreViewController {
                     as? UserMemeTableViewCell else {
                 fatalError("DequeueReusableCell failed while casting")
             }
-            //            cell.configure(imageURL: "http://imgflip.com/s/meme/Grumpy-Cat.jpg")
+
             cell.configure(imageURL: imageURL)
             return cell
 
