@@ -29,6 +29,7 @@ extension ExploreView: ViewCodeConfiguration {
         self.backgroundColor = .brown
         self.separatorStyle = .none
         self.register(MemeTableViewCell.self, forCellReuseIdentifier: "memeCell")
+        self.register(UserMemeTableViewCell.self, forCellReuseIdentifier: "userMemeCell")
     }
 
 }
