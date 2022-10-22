@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class UserMemeTableViewCell: UITableViewCell {
 
@@ -47,10 +48,8 @@ extension UserMemeTableViewCell: ViewCodeConfiguration {
 
         background.backgroundColor = .white
         background.layer.cornerRadius = 20
+        background.dropShadow()
         background.translatesAutoresizingMaskIntoConstraints = false
-
-        topTextField.placeholder = "Top Sentence"
-        bottomTextField.placeholder = "Bottom Sentence"
 
         imageFromAPI.contentMode = .scaleAspectFill
         imageFromAPI.clipsToBounds = true
@@ -127,11 +126,35 @@ extension UserMemeTableViewCell: ViewCodeConfiguration {
         ])
     }
 
-    func configure(imageURL: String) {
+    func configure(
+        userMeme: NSManagedObject?,
+        imageURL: String,
+        isRandomImage: Bool
+    ) {
+        let topSentence = userMeme?.value(forKey: "topSentence") as? String ?? ""
+
+        let bottomSentence = userMeme?.value(forKey: "bottomSentence") as? String ?? ""
+
+        let imageCoreData = userMeme?.value(
+            forKey: "imageURL"
+        ) as? String ?? "http://imgflip.com/s/meme/Grumpy-Cat.jpg"
+
         imageFromAPI.imageFromServerURL(
-            imageURL,
+            isRandomImage ? imageURL : imageCoreData,
             placeHolder: placeHolder
         )
+
+        topTextField.attributedPlaceholder = NSAttributedString(
+            string: topSentence,
+            attributes: [.foregroundColor: UIColor.lightGray]
+        )
+        topTextField.text = topSentence
+
+        bottomTextField.attributedPlaceholder = NSAttributedString(
+            string: bottomSentence,
+            attributes: [.foregroundColor: UIColor.lightGray]
+        )
+        bottomTextField.text = bottomSentence
     }
 
 }

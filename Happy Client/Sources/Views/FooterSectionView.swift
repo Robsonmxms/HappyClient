@@ -53,8 +53,10 @@ extension FooterSectionView: ViewCodeConfiguration {
         stack.spacing = 20
         stack.translatesAutoresizingMaskIntoConstraints = false
 
+        let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
         let image = UIImage(systemName: "dice.fill")?
-            .withTintColor(.cyan, renderingMode: .alwaysOriginal).resizeImage(CGSize(width: 40, height: 40))
+            .withTintColor(.cyan, renderingMode: .alwaysOriginal)
+            .withConfiguration(configuration)
         diceButton.setImage(image, for: .normal)
         diceButton.translatesAutoresizingMaskIntoConstraints = false
 
