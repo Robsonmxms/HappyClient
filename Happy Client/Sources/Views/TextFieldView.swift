@@ -15,6 +15,22 @@ class TextFieldView: UITextField {
 
     }
 
+    override func layoutSubviews() {
+            super.layoutSubviews()
+
+            for view in subviews {
+                if let button = view as? UIButton {
+                    button.setImage(
+                        button
+                            .image(for: .normal)?
+                            .withRenderingMode(.alwaysTemplate),
+                        for: .normal
+                    )
+                    button.tintColor = .cyan
+                }
+            }
+        }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -31,7 +47,9 @@ extension TextFieldView: ViewCodeConfiguration {
         self.returnKeyType = .done
         self.autocorrectionType = .yes
         self.font = .preferredFont(forTextStyle: .title1)
-        self.borderStyle = .roundedRect
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
+        self.layer.cornerRadius = 10
         self.clearButtonMode = .whileEditing
         self.contentVerticalAlignment = .center
         self.textColor = .black
@@ -43,8 +61,9 @@ extension TextFieldView: ViewCodeConfiguration {
 
 extension TextFieldView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
-        }
+    }
 
     func textField(
         _ textField: UITextField,
