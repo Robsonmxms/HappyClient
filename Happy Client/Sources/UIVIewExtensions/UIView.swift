@@ -8,9 +8,11 @@
 import UIKit
 
 extension UIView {
-    func dropShadow(scale: Bool = true) {
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        self.layer.shouldRasterize = true
-        self.layer.rasterizationScale = UIScreen.main.scale
+
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            self.layer.render(in: rendererContext.cgContext)
+        }
     }
 }
