@@ -7,16 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE75DBF128F848A100997162 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE75DBF028F848A100997162 /* ExploreView.swift */; };
+		FE75DBF428F84CAF00997162 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE75DBF328F84CAF00997162 /* UIImage.swift */; };
+		FE75DBF628F8530A00997162 /* MemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE75DBF528F8530A00997162 /* MemeTableViewCell.swift */; };
+		FEABC06E29018368005C21B5 /* Memes.json in Resources */ = {isa = PBXBuildFile; fileRef = FEABC06B29017BF3005C21B5 /* Memes.json */; };
+		FEABC0702902B9B7005C21B5 /* CellTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABC06F2902B9B7005C21B5 /* CellTypeModel.swift */; };
+		FEABC0722902BF61005C21B5 /* UserMemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABC0712902BF61005C21B5 /* UserMemeTableViewCell.swift */; };
+		FEABC0742902CFE6005C21B5 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABC0732902CFE6005C21B5 /* TextFieldView.swift */; };
+		FEABC0762902DE36005C21B5 /* FooterSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABC0752902DE36005C21B5 /* FooterSectionView.swift */; };
+		FEABC0872903901F005C21B5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABC0862903901F005C21B5 /* UIView.swift */; };
+		FEABC08C2904FB99005C21B5 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEABC08B2904FB99005C21B5 /* HeaderSectionView.swift */; };
+		FEB3A8672905A15900AF67AC /* FooterConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3A8662905A15900AF67AC /* FooterConstructor.swift */; };
+		FEB3A8692905A1AC00AF67AC /* HeaderConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3A8682905A1AC00AF67AC /* HeaderConstructor.swift */; };
 		FEB9666628F593BF009C87B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9666528F593BF009C87B8 /* AppDelegate.swift */; };
 		FEB9666828F593BF009C87B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9666728F593BF009C87B8 /* SceneDelegate.swift */; };
-		FEB9666A28F593BF009C87B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9666928F593BF009C87B8 /* ViewController.swift */; };
-		FEB9666D28F593BF009C87B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB9666B28F593BF009C87B8 /* Main.storyboard */; };
+		FEB9666A28F593BF009C87B8 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9666928F593BF009C87B8 /* ExploreViewController.swift */; };
 		FEB9667028F593BF009C87B8 /* Happy_Client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FEB9666E28F593BF009C87B8 /* Happy_Client.xcdatamodeld */; };
 		FEB9667228F593C0009C87B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB9667128F593C0009C87B8 /* Assets.xcassets */; };
 		FEB9667528F593C0009C87B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB9667328F593C0009C87B8 /* LaunchScreen.storyboard */; };
 		FEB9668028F593C0009C87B8 /* Happy_ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9667F28F593C0009C87B8 /* Happy_ClientTests.swift */; };
 		FEB9668A28F593C0009C87B8 /* Happy_ClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9668928F593C0009C87B8 /* Happy_ClientUITests.swift */; };
 		FEB9668C28F593C0009C87B8 /* Happy_ClientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9668B28F593C0009C87B8 /* Happy_ClientUITestsLaunchTests.swift */; };
+		FEB966A828F5AA23009C87B8 /* ViewCodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB966A728F5AA23009C87B8 /* ViewCodeConfiguration.swift */; };
+		FEB966AB28F8272E009C87B8 /* MemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB966AA28F8272E009C87B8 /* MemeService.swift */; };
+		FEB966AD28F82756009C87B8 /* MemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB966AC28F82756009C87B8 /* MemeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +51,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE75DBF028F848A100997162 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		FE75DBF328F84CAF00997162 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		FE75DBF528F8530A00997162 /* MemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableViewCell.swift; sourceTree = "<group>"; };
+		FEABC06B29017BF3005C21B5 /* Memes.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = Memes.json; sourceTree = "<group>"; };
+		FEABC06F2902B9B7005C21B5 /* CellTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypeModel.swift; sourceTree = "<group>"; };
+		FEABC0712902BF61005C21B5 /* UserMemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMemeTableViewCell.swift; sourceTree = "<group>"; };
+		FEABC0732902CFE6005C21B5 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		FEABC0752902DE36005C21B5 /* FooterSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterSectionView.swift; sourceTree = "<group>"; };
+		FEABC0862903901F005C21B5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		FEABC08B2904FB99005C21B5 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
+		FEB3A8662905A15900AF67AC /* FooterConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterConstructor.swift; sourceTree = "<group>"; };
+		FEB3A8682905A1AC00AF67AC /* HeaderConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderConstructor.swift; sourceTree = "<group>"; };
 		FEB9666228F593BF009C87B8 /* Happy Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Happy Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB9666528F593BF009C87B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEB9666728F593BF009C87B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FEB9666928F593BF009C87B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FEB9666C28F593BF009C87B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FEB9666928F593BF009C87B8 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		FEB9666F28F593BF009C87B8 /* Happy_Client.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Happy_Client.xcdatamodel; sourceTree = "<group>"; };
 		FEB9667128F593C0009C87B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEB9667428F593C0009C87B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +76,9 @@
 		FEB9668528F593C0009C87B8 /* Happy ClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Happy ClientUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB9668928F593C0009C87B8 /* Happy_ClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_ClientUITests.swift; sourceTree = "<group>"; };
 		FEB9668B28F593C0009C87B8 /* Happy_ClientUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Happy_ClientUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FEB966A728F5AA23009C87B8 /* ViewCodeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeConfiguration.swift; sourceTree = "<group>"; };
+		FEB966AA28F8272E009C87B8 /* MemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeService.swift; sourceTree = "<group>"; };
+		FEB966AC28F82756009C87B8 /* MemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +106,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FEABC07729030A35005C21B5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9666E28F593BF009C87B8 /* Happy_Client.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FEABC088290423B4005C21B5 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FEABC0732902CFE6005C21B5 /* TextFieldView.swift */,
+				FEABC0752902DE36005C21B5 /* FooterSectionView.swift */,
+				FEABC08B2904FB99005C21B5 /* HeaderSectionView.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		FEB3A8652905A11700AF67AC /* ExploreViewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FEB3A8682905A1AC00AF67AC /* HeaderConstructor.swift */,
+				FEB3A8662905A15900AF67AC /* FooterConstructor.swift */,
+			);
+			path = ExploreViewExtensions;
+			sourceTree = "<group>";
+		};
 		FEB9665928F593BF009C87B8 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +156,10 @@
 		FEB9666428F593BF009C87B8 /* Happy Client */ = {
 			isa = PBXGroup;
 			children = (
-				FEB9666528F593BF009C87B8 /* AppDelegate.swift */,
-				FEB9666728F593BF009C87B8 /* SceneDelegate.swift */,
-				FEB9666928F593BF009C87B8 /* ViewController.swift */,
-				FEB9666B28F593BF009C87B8 /* Main.storyboard */,
-				FEB9667128F593C0009C87B8 /* Assets.xcassets */,
-				FEB9667328F593C0009C87B8 /* LaunchScreen.storyboard */,
 				FEB9667628F593C0009C87B8 /* Info.plist */,
-				FEB9666E28F593BF009C87B8 /* Happy_Client.xcdatamodeld */,
+				FEB966A028F5A906009C87B8 /* Application */,
+				FEB9669F28F5A8E2009C87B8 /* Resources */,
+				FEB9669E28F5A8D6009C87B8 /* Sources */,
 			);
 			path = "Happy Client";
 			sourceTree = "<group>";
@@ -130,6 +181,93 @@
 			path = "Happy ClientUITests";
 			sourceTree = "<group>";
 		};
+		FEB9669E28F5A8D6009C87B8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FEABC07729030A35005C21B5 /* CoreData */,
+				FEB966A128F5A934009C87B8 /* Models */,
+				FEB966A228F5A93C009C87B8 /* Views */,
+				FEB966A328F5A954009C87B8 /* Controllers */,
+				FEB966A528F5A96D009C87B8 /* UIVIewExtensions */,
+				FEB966A428F5A960009C87B8 /* Services */,
+				FEB966A628F5A9E6009C87B8 /* CodeConfigurations */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FEB9669F28F5A8E2009C87B8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FEABC06B29017BF3005C21B5 /* Memes.json */,
+				FEB9667128F593C0009C87B8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FEB966A028F5A906009C87B8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9666528F593BF009C87B8 /* AppDelegate.swift */,
+				FEB9666728F593BF009C87B8 /* SceneDelegate.swift */,
+				FEB9667328F593C0009C87B8 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		FEB966A128F5A934009C87B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FEB966AC28F82756009C87B8 /* MemeModel.swift */,
+				FEABC06F2902B9B7005C21B5 /* CellTypeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FEB966A228F5A93C009C87B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FEABC088290423B4005C21B5 /* UIComponents */,
+				FE75DBF028F848A100997162 /* ExploreView.swift */,
+				FE75DBF528F8530A00997162 /* MemeTableViewCell.swift */,
+				FEABC0712902BF61005C21B5 /* UserMemeTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FEB966A328F5A954009C87B8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FEB3A8652905A11700AF67AC /* ExploreViewExtensions */,
+				FEB9666928F593BF009C87B8 /* ExploreViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FEB966A428F5A960009C87B8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FEB966AA28F8272E009C87B8 /* MemeService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FEB966A528F5A96D009C87B8 /* UIVIewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FE75DBF328F84CAF00997162 /* UIImage.swift */,
+				FEABC0862903901F005C21B5 /* UIView.swift */,
+			);
+			path = UIVIewExtensions;
+			sourceTree = "<group>";
+		};
+		FEB966A628F5A9E6009C87B8 /* CodeConfigurations */ = {
+			isa = PBXGroup;
+			children = (
+				FEB966A728F5AA23009C87B8 /* ViewCodeConfiguration.swift */,
+			);
+			path = CodeConfigurations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,12 +278,15 @@
 				FEB9665E28F593BF009C87B8 /* Sources */,
 				FEB9665F28F593BF009C87B8 /* Frameworks */,
 				FEB9666028F593BF009C87B8 /* Resources */,
+				FEB9669828F598D4009C87B8 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Happy Client";
+			packageProductDependencies = (
+			);
 			productName = "Happy Client";
 			productReference = FEB9666228F593BF009C87B8 /* Happy Client.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +359,8 @@
 				Base,
 			);
 			mainGroup = FEB9665928F593BF009C87B8;
+			packageReferences = (
+			);
 			productRefGroup = FEB9666328F593BF009C87B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,8 +378,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB9667528F593C0009C87B8 /* LaunchScreen.storyboard in Resources */,
+				FEABC06E29018368005C21B5 /* Memes.json in Resources */,
 				FEB9667228F593C0009C87B8 /* Assets.xcassets in Resources */,
-				FEB9666D28F593BF009C87B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,13 +399,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FEB9669828F598D4009C87B8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FEB9665E28F593BF009C87B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEB9666A28F593BF009C87B8 /* ViewController.swift in Sources */,
+				FE75DBF628F8530A00997162 /* MemeTableViewCell.swift in Sources */,
+				FEB966A828F5AA23009C87B8 /* ViewCodeConfiguration.swift in Sources */,
+				FEB3A8672905A15900AF67AC /* FooterConstructor.swift in Sources */,
+				FEB3A8692905A1AC00AF67AC /* HeaderConstructor.swift in Sources */,
+				FEABC0762902DE36005C21B5 /* FooterSectionView.swift in Sources */,
+				FEABC0722902BF61005C21B5 /* UserMemeTableViewCell.swift in Sources */,
+				FE75DBF428F84CAF00997162 /* UIImage.swift in Sources */,
+				FE75DBF128F848A100997162 /* ExploreView.swift in Sources */,
+				FEB9666A28F593BF009C87B8 /* ExploreViewController.swift in Sources */,
 				FEB9667028F593BF009C87B8 /* Happy_Client.xcdatamodeld in Sources */,
+				FEB966AD28F82756009C87B8 /* MemeModel.swift in Sources */,
+				FEABC0742902CFE6005C21B5 /* TextFieldView.swift in Sources */,
+				FEABC0872903901F005C21B5 /* UIView.swift in Sources */,
+				FEABC08C2904FB99005C21B5 /* HeaderSectionView.swift in Sources */,
+				FEB966AB28F8272E009C87B8 /* MemeService.swift in Sources */,
+				FEABC0702902B9B7005C21B5 /* CellTypeModel.swift in Sources */,
 				FEB9666628F593BF009C87B8 /* AppDelegate.swift in Sources */,
 				FEB9666828F593BF009C87B8 /* SceneDelegate.swift in Sources */,
 			);
@@ -301,14 +479,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FEB9666B28F593BF009C87B8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FEB9666C28F593BF009C87B8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FEB9667328F593C0009C87B8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -441,14 +611,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = DVX5N2U74F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Happy Client/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,9 +626,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "robson.Happy-Client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -469,14 +642,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = DVX5N2U74F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Happy Client/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,9 +657,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "robson.Happy-Client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
