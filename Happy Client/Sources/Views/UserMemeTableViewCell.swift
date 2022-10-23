@@ -48,7 +48,7 @@ extension UserMemeTableViewCell: ViewCodeConfiguration {
 
         background.backgroundColor = .white
         background.layer.cornerRadius = 20
-        background.dropShadow()
+
         background.translatesAutoresizingMaskIntoConstraints = false
 
         imageFromAPI.contentMode = .scaleAspectFill
@@ -156,5 +156,4 @@ extension UserMemeTableViewCell: ViewCodeConfiguration {
         )
         bottomTextField.text = bottomSentence
     }
-
 }

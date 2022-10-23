@@ -47,9 +47,6 @@ extension TextFieldView: ViewCodeConfiguration {
         self.returnKeyType = .done
         self.autocorrectionType = .yes
         self.font = .preferredFont(forTextStyle: .title1)
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
-        self.layer.cornerRadius = 10
         self.clearButtonMode = .whileEditing
         self.contentVerticalAlignment = .center
         self.textColor = .black

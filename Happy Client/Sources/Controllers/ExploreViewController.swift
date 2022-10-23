@@ -10,15 +10,15 @@ import CoreData
 
 class ExploreViewController: UITableViewController {
 
-    private var memeModel: MemeModel?
+    var memeModel: MemeModel?
 
-    private var userMeme: [NSManagedObject] = []
+    var userMeme: [NSManagedObject] = []
 
-    private var imageURL: String = "http://imgflip.com/s/meme/Grumpy-Cat.jpg"
-    private var topSentence: String = ""
-    private var bottomSentence: String = ""
+    var imageURL: String = "http://imgflip.com/s/meme/Grumpy-Cat.jpg"
+    var topSentence: String = ""
+    var bottomSentence: String = ""
 
-    private var isRandomImage: Bool = false
+    var isRandomImage: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,37 +76,23 @@ extension ExploreViewController {
 
     }
 
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == 0 {
-            let footerView = FooterSectionView()
-            footerView.diceButton.addTarget(
-                self,
-                action: #selector(self.diceButtonTapped),
-                for: .touchUpInside
-            )
-            footerView.doneButton.addTarget(
-                self,
-                action: #selector(self.doneButtonTapped),
-                for: .touchUpInside
-            )
-            return footerView
-        } else {
-            return UIView()
-        }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let isSharingImage = section == 0
+        let header = HeaderSectionView(frame: .zero, isSharingImage: isSharingImage)
+
+        header.shareButton.addTarget(
+            self,
+            action: #selector(self.shareImage),
+            for: .touchUpInside
+        )
+        return header
     }
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .preferredFont(forTextStyle: .largeTitle)
-
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 0 {
-            label.text = "Your Meme"
-            return label
-
+            return self.buildFooterSectionView()
         } else {
-            label.text = "Community Memes"
-            return label
+            return UIView()
         }
     }
 
@@ -135,88 +121,6 @@ extension ExploreViewController {
             }
             cell.configure(with: memeModel!.data[indexPath.row])
             return cell
-        }
-    }
-
-    @objc func diceButtonTapped(sender: UIButton) {
-        let randomElement = memeModel?.data.randomElement()
-        self.imageURL = randomElement!.image
-        self.isRandomImage = true
-        tableView.reloadData()
-    }
-
-    @objc func doneButtonTapped(sender: UIButton) {
-        let alert = UIAlertController(
-            title: "Save Changes",
-            message: "Do you want to save the changes made to your meme?",
-            preferredStyle: .alert
-        )
-
-        alert.addAction(UIAlertAction(
-            title: "Continue",
-            style: .default,
-            handler: {_ in self.saveChanges()}
-        ))
-        alert.addAction(UIAlertAction(
-            title: "Cancel",
-            style: .cancel,
-            handler: nil
-        ))
-
-        self.present(alert, animated: true, completion: nil)
-
-    }
-
-    func saveChanges() {
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cell = tableView.cellForRow(at: indexPath)
-
-        setTopSentence(cell)
-        setBottomSentence(cell)
-        saveInCoreData()
-    }
-
-    func setTopSentence(_ cell: UITableViewCell?) {
-        let topTextField = cell?.contentView.subviews[0].subviews[0] as? TextFieldView
-        self.topSentence = topTextField?.text ?? ""
-    }
-
-    func setBottomSentence(_ cell: UITableViewCell?) {
-        let bottomTextField = cell?.contentView.subviews[0].subviews[2] as? TextFieldView
-        self.bottomSentence = bottomTextField?.text ?? ""
-    }
-
-    func saveInCoreData() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-
-        let manegedContext = appDelegate.persistentContainer.viewContext
-
-        let entity = NSEntityDescription.entity(
-            forEntityName: "UserMeme",
-            in: manegedContext
-        )!
-        let userModel = NSManagedObject(
-            entity: entity,
-            insertInto: manegedContext
-        )
-        userModel.setValue(self.topSentence, forKey: "topSentence")
-        userModel.setValue(self.bottomSentence, forKey: "bottomSentence")
-        userModel.setValue(self.imageURL, forKey: "imageURL")
-
-        do {
-            if !self.userMeme.isEmpty {
-                for interable in 0...self.userMeme.count-1 {
-                    manegedContext.delete(self.userMeme[interable])
-                }
-                self.userMeme.removeAll()
-            }
-            self.userMeme.append(userModel)
-            try manegedContext.save()
-
-        } catch let error as NSError {
-            print("could not to save coreData Model \(error)")
         }
     }
 }
