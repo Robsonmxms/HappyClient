@@ -64,13 +64,13 @@ extension ExploreViewController {
     }
 
     func setTopSentence(_ cell: UITableViewCell?) {
-        let topTextField = cell?.contentView.subviews[0].subviews[0] as? TextFieldView
-        self.topSentence = topTextField?.text ?? ""
+        let userMemeCell = cell as? UserMemeTableViewCell
+        self.topSentence = userMemeCell?.topTextField.text ?? ""
     }
 
     func setBottomSentence(_ cell: UITableViewCell?) {
-        let bottomTextField = cell?.contentView.subviews[0].subviews[2] as? TextFieldView
-        self.bottomSentence = bottomTextField?.text ?? ""
+        let userMemeCell = cell as? UserMemeTableViewCell
+        self.bottomSentence = userMemeCell?.bottomTextField.text ?? ""
     }
 
     func saveDataInCoreData() {
@@ -97,7 +97,6 @@ extension ExploreViewController {
                 for meme in self.userMeme {
                     manegedContext.delete(meme)
                 }
-                print(self.userMeme.count)
                 self.userMeme.removeAll()
             }
             self.userMeme.append(userModel)
