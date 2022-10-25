@@ -27,8 +27,8 @@ extension ExploreViewController {
 
     @objc func diceButtonTapped(sender: UIButton) {
         let randomElement = memeModel?.data.randomElement()
-        self.imageURL = randomElement!.image
-        self.isRandomImage = true
+        self.coreDataModel.cardModel.image.URL = randomElement!.image
+        self.coreDataModel.cardModel.image.isRandomImage = true
         tableView.reloadData()
     }
 
@@ -60,50 +60,19 @@ extension ExploreViewController {
 
         setTopSentence(cell)
         setBottomSentence(cell)
-        saveDataInCoreData()
+        coreDataModel.saveDataInCoreData()
     }
 
     func setTopSentence(_ cell: UITableViewCell?) {
         let userMemeCell = cell as? UserMemeTableViewCell
-        self.topSentence = userMemeCell?.topTextField.text ?? ""
+        self.coreDataModel.cardModel
+            .topSentence = userMemeCell?.topTextField.text ?? ""
     }
 
     func setBottomSentence(_ cell: UITableViewCell?) {
         let userMemeCell = cell as? UserMemeTableViewCell
-        self.bottomSentence = userMemeCell?.bottomTextField.text ?? ""
+        self.coreDataModel.cardModel
+            .bottomSentence = userMemeCell?.bottomTextField.text ?? ""
     }
 
-    func saveDataInCoreData() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-
-        let manegedContext = appDelegate.persistentContainer.viewContext
-
-        let entity = NSEntityDescription.entity(
-            forEntityName: "UserMeme",
-            in: manegedContext
-        )!
-        let userModel = NSManagedObject(
-            entity: entity,
-            insertInto: manegedContext
-        )
-        userModel.setValue(self.topSentence, forKey: "topSentence")
-        userModel.setValue(self.bottomSentence, forKey: "bottomSentence")
-        userModel.setValue(self.imageURL, forKey: "imageURL")
-
-        do {
-            if !self.userMeme.isEmpty {
-                for meme in self.userMeme {
-                    manegedContext.delete(meme)
-                }
-                self.userMeme.removeAll()
-            }
-            self.userMeme.append(userModel)
-            try manegedContext.save()
-
-        } catch let error as NSError {
-            print("could not to save coreData Model \(error)")
-        }
-    }
 }

@@ -6,19 +6,11 @@
 //
 
 import UIKit
-import CoreData
 
 class ExploreViewController: UITableViewController {
 
     var memeModel: MemeModel?
-
-    var userMeme: [NSManagedObject] = []
-
-    var imageURL: String = "http://imgflip.com/s/meme/Grumpy-Cat.jpg"
-    var topSentence: String = ""
-    var bottomSentence: String = ""
-
-    var isRandomImage: Bool = false
+    var coreDataModel = CoreDataModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,29 +25,7 @@ class ExploreViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-
-        let manegedContext = appDelegate.persistentContainer.viewContext
-
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserMeme")
-
-        do {
-            try self.userMeme = manegedContext.fetch(fetchRequest)
-
-            self.imageURL = self.userMeme.first?.value(
-                forKey: "imageURL"
-            ) as? String ?? "http://imgflip.com/s/meme/Grumpy-Cat.jpg"
-
-            if self.userMeme.isEmpty {
-                self.isRandomImage = true
-            }
-
-        } catch let error as NSError {
-            print("could not to load coreData Model \(error)")
-        }
+        coreDataModel.fetchDataFromCoreData()
     }
 }
 
@@ -106,12 +76,8 @@ extension ExploreViewController {
                     as? UserMemeTableViewCell else {
                 fatalError("DequeueReusableCell failed while casting")
             }
-            cell.configure(
-                userMeme: userMeme.first,
-                imageURL: self.imageURL,
-                isRandomImage: self.isRandomImage
-            )
-            self.isRandomImage = false
+            cell.configure(coreDataModel)
+            self.coreDataModel.cardModel.image.isRandomImage = false
             return cell
 
         case .list:

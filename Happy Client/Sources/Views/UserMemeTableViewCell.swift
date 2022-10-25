@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 class UserMemeTableViewCell: UITableViewCell {
 
@@ -127,20 +126,19 @@ extension UserMemeTableViewCell: ViewCodeConfiguration {
     }
 
     func configure(
-        userMeme: NSManagedObject?,
-        imageURL: String,
-        isRandomImage: Bool
+        _ coreDataModel: CoreDataModel
     ) {
-        let topSentence = userMeme?.value(forKey: "topSentence") as? String ?? ""
+        let topSentence = coreDataModel.userMemes.first?
+            .value(forKey: "topSentence") as? String ?? ""
 
-        let bottomSentence = userMeme?.value(forKey: "bottomSentence") as? String ?? ""
+        let bottomSentence = coreDataModel.userMemes.first?
+            .value(forKey: "bottomSentence") as? String ?? ""
 
-        let imageCoreData = userMeme?.value(
-            forKey: "imageURL"
-        ) as? String ?? "http://imgflip.com/s/meme/Grumpy-Cat.jpg"
+        let imageCoreData = coreDataModel.userMemes.first?
+            .value( forKey: "imageURL") as? String ?? "http://imgflip.com/s/meme/Grumpy-Cat.jpg"
 
         imageFromAPI.imageFromServerURL(
-            isRandomImage ? imageURL : imageCoreData,
+            coreDataModel.cardModel.image.isRandomImage ? coreDataModel.cardModel.image.URL : imageCoreData,
             placeHolder: placeHolder
         )
 
